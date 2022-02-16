@@ -1,0 +1,42 @@
+<div class="characters-shelf p-grid" #shelf>
+  <div class="characters-shelf-filters">
+    <p-button styleClass="btn" icon="pi pi-filter" label="Filter" (onClick)="toggleFilters()"></p-button>
+
+    <form class="characters-shelf-filters-wrapper">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText placeholder="Your hero" #searchInput class="characters-shelf-filters-input">
+      </span>
+      <p-button type="submit" styleClass="btn p-button-secondary" icon="pi pi-check" label="Search"
+        (onClick)="searchHeroes(searchInput.value)">
+      </p-button>
+    </form>
+  </div>
+
+  <ng-container *ngIf="!loading else loadingTemplate">
+    <ng-container *ngFor="let character of charactersResponse.data.results">
+      <app-character-panel [character]="character"></app-character-panel>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #loadingTemplate>
+    <ng-container *ngFor="let arr of [].constructor(20)">
+      <div class="p-col-3 characters-shelf-skeleton">
+        <p-skeleton height="100%" width="100%"></p-skeleton>
+      </div>
+    </ng-container>
+  </ng-template>
+
+  <div class="character-shelf-pagination p-col-12">
+    <ng-container *ngIf="!loading else loadingPaginationTemplate">
+      <p-paginator [first]="charactersResponse.data.offset" [rows]="20" [totalRecords]="charactersResponse.data.total"
+        (onPageChange)="listCharactersByPage($event)"></p-paginator>
+    </ng-container>
+
+    <ng-template #loadingPaginationTemplate>
+      <p-skeleton height="50px" width="100%"></p-skeleton>
+    </ng-template>
+  </div>
+</div>
+
+<p-sidebar [(visible)]="filtersOpen"></p-sidebar>

@@ -1,0 +1,54 @@
+@import "index";
+
+.footer {
+  height: 300px;
+  padding: 20px 30px;
+  background-color: $color-secondary;
+
+  &-left {
+    display: flex;
+
+    &-list {
+      margin-left: 80px;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-around;
+
+      &-item {
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &-container {
+    width: 75%;
+    margin: 0 auto;
+    align-items: center;
+    display: flex;
+  }
+
+  &-main {
+  }
+
+  &-right {
+    &-profile {
+      display: flex;
+      align-items: center;
+
+      &-picture {
+        border-radius: 100px;
+        margin-right: 20px;
+      }
+
+      &-name {
+        margin-top: 10px;
+
+        a {
+          color: $color-primary;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

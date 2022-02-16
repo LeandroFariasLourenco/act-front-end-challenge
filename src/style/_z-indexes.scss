@@ -1,0 +1,17 @@
+$elementos: (header);
+
+@function z($list, $element) {
+  $z-index: index($list, $element);
+
+  @if $z-index {
+    @return 5000 + $z-index;
+  }
+
+  @return null;
+}
+
+@each $elemento in $elementos {
+  .#{$elemento} {
+    z-index: z($elementos, $elemento) !important;
+  }
+}

@@ -1,0 +1,11 @@
+@mixin betweenmq($min, $max) {
+  @media only screen and (min-width: #{$min + 1}px) and (max-width: #{$max - 1}px) {
+    @content;
+  }
+}
+
+@mixin custom($type, $min) {
+  @media only screen and (#{$type}-width: #{$min}px) {
+    @content;
+  }
+}

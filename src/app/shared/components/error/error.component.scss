@@ -1,0 +1,23 @@
+.error {
+  &-content {
+    display: flex;
+    flex-flow: column;
+    max-width: 600px;
+
+    &-message {
+      max-width: 250px;
+      margin: 10px auto;
+      text-align: center;
+    }
+
+    &-buttons {
+      text-align: center;
+      display: flex;
+      flex-flow: column;
+
+      button {
+        margin-top: 10px;
+      }
+    }
+  }
+}

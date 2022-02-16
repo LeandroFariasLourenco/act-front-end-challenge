@@ -1,0 +1,41 @@
+<div class="character">
+  <div class="character-wrapper">
+    <ng-template #loadingContentTemplate>
+      <p-skeleton width="300px" height="400px"></p-skeleton>
+      <p-skeleton class="skeleton" height="400px"></p-skeleton>
+
+    </ng-template>
+    <ng-container *ngIf="!loading else loadingContentTemplate">
+      <img class="character-image" [src]="character.thumbnail.path+'.'+character.thumbnail.extension"
+        [alt]="character.name" [title]="character.name" />
+      <div class="character-content">
+        <h1 class="character-title">{{character.name}}</h1>
+        <p class="character-description">
+          {{character.description || 'No description available.'}}
+        </p>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="character-footer">
+    <ng-template #loadingFooterTemplate>
+      <p-skeleton class="skeleton" height="50px"></p-skeleton>
+    </ng-template>
+
+    <ng-container *ngIf="!loading else loadingFooterTemplate">
+      <p-button icon="pi pi-arrow-left" (onClick)="goBack()" styleClass="btn"></p-button>
+      <p class="character-modified">
+        This content was last edited at {{character.modified | date: 'medium'}}
+      </p>
+
+      <div class="character-links">
+        <p-button label="W" icon="pi pi-external-link" pTooltip="Go to this character wiki page!"
+          styleClass="p-button-warning"></p-button>
+        <p-button label="M" icon="pi pi-external-link" pTooltip="Go to this character official marvel page!"
+          styleClass="p-button-danger"></p-button>
+        <p-button label="C" icon="pi pi-external-link" pTooltip="Go to this official comic page!"
+          styleClass="p-button-secondary"></p-button>
+      </div>
+    </ng-container>
+  </div>
+</div>

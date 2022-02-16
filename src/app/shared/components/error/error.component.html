@@ -1,0 +1,34 @@
+<!-- <p-dialog [(visible)]="popupAberto" [baseZIndex]="9500" [modal]="true" [draggable]="false" [resizable]="false">
+  <ng-template pTemplate="header">
+    <h2>{{ httpError?.tipo || clientRequestError.tipo }}</h2>
+  </ng-template>
+
+  <ng-template pTemplate="body">
+    <div class="error-content" *ngIf="httpError?.mensagem else templateErroClient">
+      <span class="error-content-message">
+        {{ httpError.mensagem }}
+      </span>
+
+      <div class="error-content-buttons">
+        <button pButton class="p-button" (click)="recarregarPagina()" label="Recarregar página"
+          icon="pi pi-refresh"></button>
+        <button pButton class="p-button-success" (click)="navegarParaInicio()" label="Voltar para dashboard"
+          icon="pi pi-sign-out"></button>
+      </div>
+    </div>
+
+    <ng-template #templateErroClient>
+      <div class="error-content">
+        <span class="error-content-message">
+          {{ clientRequestError.mensagem }}
+        </span>
+
+        <div class="error-content-buttons">
+          <button pButton class="p-button-warning" (click)="alternarPopup()" label="Fechar" icon="pi pi-times"></button>
+        </div>
+      </div>
+    </ng-template>
+  </ng-template>
+</p-dialog>
+
+<p-toast key="app-error-toast" position="bottom-center"></p-toast> -->

@@ -1,0 +1,26 @@
+@mixin center-screen($position) {
+  position: $position;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flex-centered() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin card($cor) {
+  box-shadow: 0 0px 5px rgba($cor, 0.25);
+  border-radius: 5px;
+
+  &:not(.no-padding) {
+    padding: 20px;
+  }
+
+  &-content,
+  &-body {
+    padding: 0 !important;
+  }
+}

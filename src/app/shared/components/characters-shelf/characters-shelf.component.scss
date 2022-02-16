@@ -1,0 +1,36 @@
+@import "index";
+
+.characters-shelf {
+  width: 100%;
+  justify-content: center;
+
+  &-filters {
+    width: 100%;
+    border: 1px solid $color-primary;
+    padding: 20px;
+    background-color: $color-secondary;
+    display: flex;
+
+    &-wrapper {
+      margin: 0 15px 0 50px;
+    }
+
+    &-input {
+      border: none;
+      background-color: rgba($color-primary, 0.75);
+      color: $color-font-primary;
+      margin-right: 15px;
+
+      &::placeholder {
+        color: $color-font-primary;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &-skeleton {
+    height: 275px;
+    width: 200px;
+    margin: 10px;
+  }
+}

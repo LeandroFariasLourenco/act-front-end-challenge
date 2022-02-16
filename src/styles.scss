@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+@import "index";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $font;
+}
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-thirdary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-secondary;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+a {
+  color: $color-font-primary;
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+body {
+  color: $color-font-primary;
+  background-image: linear-gradient(to top, hsla(0, 0%, 0%, 0.3), hsla(0, 0%, 0%, 1)),
+    url("/assets/images/background.png");
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+}
+
+[disabled] {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.btn {
+  &.p-button {
+    background: $color-primary;
+    border: none;
+    color: $color-font-primary;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.p-tooltip {
+  &-bottom {
+    .p-tooltip-arrow {
+      border-bottom-color: $color-primary !important;
+    }
+  }
+
+  .p-tooltip-text {
+    background: $color-primary !important;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+  }
+}
