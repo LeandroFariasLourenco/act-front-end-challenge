@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "clean": "rm package-lock.json && rm -rf node_modules",
     "lint": "npx ng lint --fix",
-    "commit": "npx cz-customizable"
+    "commit": "npx cz-customizable",
   },
   "private": true,
   "dependencies": {
