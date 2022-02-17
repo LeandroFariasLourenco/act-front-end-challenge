@@ -1,20 +1,33 @@
+@import "index";
+
 .character-panel {
-  width: 200px;
-  height: 275px;
-  box-shadow: 0 0 5px red;
-  border-radius: 10px;
-  padding: 10px 20px;
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin: 10px;
+  // width: 200px;
   position: relative;
   transition: all 200ms ease-in-out;
   cursor: pointer;
 
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-    transform: scale(1.1);
-    box-shadow: 0 0 30px red;
+  &-image {
+    width: 100%;
+    height: 300px;
+    box-shadow: 0 0 5px red;
+    border-radius: 10px;
+
+    @include betweenmq(992, 1280) {
+      height: 230px;
+    }
+
+    @include betweenmq(630, $mobile) {
+      height: 300px;
+    }
+
+    @include betweenmq(0, 630) {
+      height: 230px;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+      transform: scale(1.1);
+      box-shadow: 0 0 30px red;
+    }
   }
 }

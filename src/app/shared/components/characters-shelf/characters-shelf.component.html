@@ -1,7 +1,5 @@
 <div class="characters-shelf p-grid" #shelf>
   <div class="characters-shelf-filters">
-    <p-button styleClass="btn" icon="pi pi-filter" label="Filter" (onClick)="toggleFilters()"></p-button>
-
     <form class="characters-shelf-filters-wrapper">
       <span class="p-input-icon-left">
         <i class="pi pi-search"></i>
@@ -14,20 +12,24 @@
   </div>
 
   <ng-container *ngIf="!loading else loadingTemplate">
+    <span style="margin-top: 10px;" *ngIf="!charactersResponse.data.results.length">There appears to be no heroes with
+      that name</span>
     <ng-container *ngFor="let character of charactersResponse.data.results">
-      <app-character-panel [character]="character"></app-character-panel>
+      <div class="characters-shelf-character p-col-6 p-lg-3">
+        <app-character-panel [character]="character"></app-character-panel>
+      </div>
     </ng-container>
   </ng-container>
 
   <ng-template #loadingTemplate>
     <ng-container *ngFor="let arr of [].constructor(20)">
-      <div class="p-col-3 characters-shelf-skeleton">
+      <div class="p-col-6 p-lg-3 characters-shelf-skeleton">
         <p-skeleton height="100%" width="100%"></p-skeleton>
       </div>
     </ng-container>
   </ng-template>
 
-  <div class="character-shelf-pagination p-col-12">
+  <div class="characters-shelf-pagination p-col-12">
     <ng-container *ngIf="!loading else loadingPaginationTemplate">
       <p-paginator [first]="charactersResponse.data.offset" [rows]="20" [totalRecords]="charactersResponse.data.total"
         (onPageChange)="listCharactersByPage($event)"></p-paginator>

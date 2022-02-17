@@ -36,8 +36,6 @@ export class CharactersShelfComponent implements OnInit {
       }, console.log);
   }
 
-
-
   listCharactersByPage(event: Paginator): void {
     this.loading = true;
     window.scrollTo({
@@ -52,11 +50,12 @@ export class CharactersShelfComponent implements OnInit {
     ;
   }
 
-  toggleFilters(): void {
-    this.filtersOpen = !this.filtersOpen;
-  }
-
   searchHeroes(query: string): void {
+    if (!query) {
+      this.listCharacters();
+      return;
+    }
+
     this.loading = true;
     this.marvelService.getCharactersListByName(query)
       .pipe(finalize(() => this.loading = false))

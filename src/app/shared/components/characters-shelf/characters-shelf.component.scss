@@ -3,6 +3,24 @@
 .characters-shelf {
   width: 100%;
   justify-content: center;
+  margin: 0;
+
+  @include custom(min, $mobile) {
+    padding: 0 20px;
+  }
+
+  @include custom(max, $mobile) {
+    padding: 0 10px;
+  }
+
+  &-character {
+    justify-content: center;
+  }
+
+  &-pagination {
+    margin: 0 auto;
+    justify-content: center;
+  }
 
   &-filters {
     width: 100%;
@@ -12,7 +30,7 @@
     display: flex;
 
     &-wrapper {
-      margin: 0 15px 0 50px;
+      display: flex;
     }
 
     &-input {
@@ -29,8 +47,18 @@
   }
 
   &-skeleton {
-    height: 275px;
-    width: 200px;
-    margin: 10px;
+    height: 300px;
+
+    @include betweenmq(992, 1280) {
+      height: 230px;
+    }
+
+    @include betweenmq(630, $mobile) {
+      height: 300px;
+    }
+
+    @include betweenmq(0, 630) {
+      height: 230px;
+    }
   }
 }

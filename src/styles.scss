@@ -78,3 +78,15 @@ img {
     text-align: center;
   }
 }
+
+.desktop {
+  @include custom(max, $mobile) {
+    display: none !important;
+  }
+}
+
+.mobile {
+  @include custom(min, $mobile) {
+    display: none !important;
+  }
+}

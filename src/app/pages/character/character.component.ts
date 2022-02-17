@@ -23,6 +23,10 @@ export class CharacterComponent implements OnInit {
 
   ngOnInit(): void {
     this.listCharacterDetails();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 
   listCharacterDetails(): void {
@@ -34,6 +38,10 @@ export class CharacterComponent implements OnInit {
 
   goBack(): void {
     this.router.navigate(['home']);
+  }
+
+  navigateToExternalUrl(url: string): void {
+    window.open(url);
   }
 
 }

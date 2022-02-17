@@ -1,5 +1,5 @@
-<div class="character-panel p-col-3" (click)="navigateToCharacterPage()" tooltipStyleClass="tooltip"
-  tooltipPosition="bottom" [pTooltip]="character.name"
-  [style]="{ 'background-image': 'url('+character.thumbnail.path+'.'+character.thumbnail.extension+')' }">
+<div class="character-panel p-col-12" (click)="navigateToCharacterPage()" tooltipStyleClass="tooltip"
+  tooltipPosition="bottom" [pTooltip]="character.name">
+  <img [src]="character.thumbnail.path+'.'+character.thumbnail.extension" class="character-panel-image" />
   <div class="character-panel-overlay"></div>
 </div>

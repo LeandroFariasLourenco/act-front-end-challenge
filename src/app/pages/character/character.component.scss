@@ -3,11 +3,23 @@
 ::ng-deep {
   .skeleton {
     flex: 1;
-    margin-left: 30px;
+
+    @include custom(min, mobile) {
+      margin-left: 30px;
+    }
+  }
+
+  p-button {
+    @include custom(max, $mobile) {
+      justify-content: center;
+      display: flex;
+    }
   }
 }
 
 .character {
+  margin: 0;
+
   &-title {
     text-transform: uppercase;
     width: 100%;
@@ -15,10 +27,39 @@
     border-bottom: 1px solid white;
   }
 
+  &-featured {
+    margin-top: 10px;
+
+    @include custom(max, $mobile) {
+      margin: 0 auto;
+    }
+
+    &-title {
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid white;
+    }
+
+    &-comic {
+      text-transform: uppercase;
+      list-style-type: disc;
+      margin: 10px 20px;
+    }
+  }
+
   &-wrapper {
-    display: flex;
-    justify-content: space-between;
     width: 100%;
+
+    @include custom(min, $mobile) {
+      justify-content: space-between;
+    }
+
+    @include custom(max, $mobile) {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-flow: column;
+    }
   }
 
   &-description {
@@ -26,35 +67,87 @@
   }
 
   &-modified {
+    text-align: center;
+
+    @include custom(max, 768) {
+      margin: 20px 0;
+      padding: 0 10px;
+    }
   }
 
   &-image {
+    max-width: 300px;
     margin: 0 auto;
-    width: 300px;
     height: 400px;
-    border: 1px solid $color-secondary;
+    background-color: $color-secondary;
+
+    @include custom(max, $mobile) {
+      margin-bottom: 30px;
+      height: 300px;
+    }
   }
 
-  &-content {
-    flex: 1;
-    margin-left: 50px;
+  &-content,
+  &-featured {
     background-color: rgba($color-secondary, 0.5);
     padding: 10px 20px;
     border-radius: 10px;
+    margin: 0 auto;
   }
 
   &-footer {
     padding: 10px 20px;
     margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
+
+    @include custom(max, $mobile) {
+      justify-content: center;
+    }
   }
 
   &-links {
-    width: 200px;
-    display: flex;
-    justify-content: space-between;
+    &-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: 10px 10px;
+      border-radius: 5px;
+      transition: opacity 200ms ease-in-out;
+
+      @include custom(max, $mobile) {
+        margin-top: 10px;
+      }
+
+      @include custom(min, $mobile) {
+        margin-right: 10px;
+      }
+
+      i {
+        margin-right: 10px;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &.detail {
+        background-color: #5a6268;
+      }
+
+      &.wiki {
+        background-color: #4f46e5;
+      }
+
+      &.comic {
+        background-color: #e97984;
+      }
+    }
+
+    &.mobile {
+      align-items: center;
+      justify-content: center;
+    }
   }
 }

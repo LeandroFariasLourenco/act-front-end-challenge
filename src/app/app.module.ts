@@ -9,6 +9,7 @@ import { AuthorizationInterceptor } from './core/interceptors/authorization.inte
 import { HttpErrorInterceptor } from './core/interceptors/httpError.interceptor';
 import { CharacterComponent } from './pages/character/character.component';
 import { HomeComponent } from './pages/home/home.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SharedModule } from './shared/shared.module';
     AppComponent,
     HomeComponent,
     CharacterComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

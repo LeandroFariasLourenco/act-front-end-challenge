@@ -1,22 +1,54 @@
 @import "index";
 
 .footer {
-  height: 300px;
   padding: 20px 30px;
   background-color: $color-secondary;
 
   &-left {
     display: flex;
 
+    @include custom(min, $mobile) {
+      flex-direction: row;
+    }
+
+    @include custom(max, $mobile) {
+      align-items: center;
+      flex-direction: column;
+      order: 2;
+    }
+
+    &-icon {
+      @include custom(min, $mobile) {
+        width: 100px;
+      }
+
+      @include custom(max, $mobile) {
+        width: 50px;
+        margin-top: 50px;
+      }
+    }
+
     &-list {
-      margin-left: 80px;
       display: flex;
       flex-flow: column;
       justify-content: space-around;
 
+      @include custom(min, $mobile) {
+        margin-left: 80px;
+      }
+
+      @include custom(max, $mobile) {
+        margin-top: 20px;
+      }
+
       &-item {
         text-transform: uppercase;
         font-weight: bold;
+
+        @include custom(max, $mobile) {
+          margin-bottom: 20px;
+          text-align: center;
+        }
       }
     }
   }
@@ -28,17 +60,25 @@
     display: flex;
   }
 
-  &-main {
-  }
-
   &-right {
+    @include custom(max, $mobile) {
+      order: 1;
+    }
+
     &-profile {
       display: flex;
       align-items: center;
+      @include betweenmq(0, $mobile) {
+        align-items: center;
+        justify-content: center;
+      }
 
       &-picture {
         border-radius: 100px;
-        margin-right: 20px;
+
+        @include custom(min, $mobile) {
+          margin-right: 20px;
+        }
       }
 
       &-name {
